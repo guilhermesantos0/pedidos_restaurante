@@ -1,0 +1,14 @@
+.Category{
+    width: 20vw;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(78, 78, 78);
+    border: 2px solid gray;
+    border-radius: 5px;
+
+    color: aliceblue;
+}
