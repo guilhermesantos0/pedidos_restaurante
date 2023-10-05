@@ -19,8 +19,13 @@
     height: 10vh;
 }
 
-.home{
+.home, .cart{
     filter: invert(1);
+}
+
+.cart{
+    width: 8vh;
+    height: 8vh;
 }
 
 @media screen and (max-width: 767px) {

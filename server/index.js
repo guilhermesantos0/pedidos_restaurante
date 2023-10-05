@@ -1,19 +1,45 @@
 const express = require("express")
+const colors = require("colors");
 const menu = require("./db.json")
 
 const app = express()
 
-app.get("/items", (req, res) => {
+const cart = {}
+
+const logRequest = (req, res) => {
     const date = new Date()
+    
+    console.log(`${res.statusCode == 200 ? colors.green(res.statusCode) : colors.blue(res.statusCode)} - ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${colors.yellow(req.originalUrl)}`)
+}
 
-    console.log(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} - ${res.statusCode}`)
-
+app.get("/items", (req, res) => {
     res.json(menu.items)
+    logRequest(req, res)
 })
 
 app.post("/add", (req, res) => {
-    console.log(req)
-    console.log("TESTE")
+    
+    if(cart[req.headers.product]){
+        cart[req.headers.product] = cart[req.headers.product] + 1
+    }else{
+        cart[req.headers.product] = 1
+    }
+    
+    res.status(200)
+    logRequest(req, res)
+})
+
+app.get("/get", (req, res) => {
+    res.json(cart)
+    logRequest(req, res)
+})
+
+app.get("/getProduct", (req, res) => {
+
+    const productId = res.query.productId
+
+    menu.find(i => i.id == productId)
+
 })
 
 app.listen(8000, () => {

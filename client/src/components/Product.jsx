@@ -1,16 +1,11 @@
 import '../styles/components/Product.css';
 
-import useFetch from '../hooks/useFetch';
+import addToCard from '../helpers/addToCart';
 
 function Product(props) {
 
     const handleAddProduct = () => {
-        const _ = useFetch("/add", {
-            method: "POST",
-            data: {
-                product: props.id
-            }
-        })
+        addToCard(props.id)
     }
 
     return(
