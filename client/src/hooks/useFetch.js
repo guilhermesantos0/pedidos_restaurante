@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
+const useFetch = (url, options) => {
 
     const [data, setData] = useState(null)
     const [isPending, setIsPending] = useState(true)
@@ -9,8 +9,11 @@ const useFetch = (url) => {
     useEffect(() => {
         const abortCont = new AbortController()
 
-        fetch(url, { signal: abortCont.signal })
+        options = { ...options, signal: abortCont.signal }
+
+        fetch(url, options)
         .then(res => {
+            console.log(res)
             if(!res.ok){
                 throw Error('Ouve um erro ao pegar as informações.')
             }
@@ -22,6 +25,9 @@ const useFetch = (url) => {
             setError(null)
         })
         .catch(err => {
+
+            console.log(err.name)
+
             if(err.name === "AbortError"){
                 console.log("Fetch aborted")
             }else{

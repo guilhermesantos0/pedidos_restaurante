@@ -13,7 +13,7 @@ function _Category() {
     const [ products, setProducts ] = useState(null);
 
     const { category } = useParams();
-    const {data: _products, isPending, error } = useFetch("http://localhost:8000/items")
+    const {data: _products, isPending, error } = useFetch("/items", { headers: { accept: 'application/json' } })
     useEffect(() => {
         if (_products){
             // console.log(_products[category])

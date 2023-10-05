@@ -19,3 +19,17 @@
 .Product h2{
     margin-block-end: 0em;
 }
+
+@media screen and (max-width: 767px) {
+    .Product{
+        width: 85vw;
+    }
+
+    .Product h2{
+        font-size: 2rem;
+    }
+
+    .Product p{
+        font-size: 1.3rem;
+    }
+}

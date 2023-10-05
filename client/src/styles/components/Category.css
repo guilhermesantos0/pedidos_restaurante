@@ -12,3 +12,13 @@
 
     color: aliceblue;
 }
+
+@media screen and (max-width: 767px) {
+    .Category{
+        width: 85vw;
+        height: 20vh;
+
+        font-size: 3rem;
+    }
+    
+}
