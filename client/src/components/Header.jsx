@@ -7,10 +7,14 @@ import { Link } from 'react-router-dom';
 function Header() {
     return(
         <div className="Header">
-            <Link to="/cart"><img src={cart} alt="Carrinho" className="cart" /></Link>
-            <Link to="/"><img src={home} alt="Voltar" className="home" /></Link>
-            <img src={logo} alt="Logo" />
-            <h1>Nome do Restaurante</h1>
+            <div className="top_bar">
+                <img src={logo} alt="Logo" />
+                <h1>Nome do Restaurante</h1>
+            </div>
+            <div className="bottom_bar">
+                <Link to="/cart">Carrinho</Link>
+                <Link to="/">Menu Inicial</Link>
+            </div>
         </div>
     )
 }

@@ -26,10 +26,12 @@ app.post("/add", (req, res) => {
     }
     
     res.status(200)
+
+    console.log(cart)
     logRequest(req, res)
 })
 
-app.get("/get", (req, res) => {
+app.get("/getCart", (req, res) => {
     res.json(cart)
     logRequest(req, res)
 })

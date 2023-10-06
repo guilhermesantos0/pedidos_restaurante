@@ -1,11 +1,8 @@
-// import { useState } from "react";
-
 import useFetch from "../hooks/useFetch";
 import '../styles/pages/Home.css';
 
 import Category from "../components/Category";
 import Header from "../components/Header";
-import { useEffect, useState } from "react";
 
 function Home() {
 
