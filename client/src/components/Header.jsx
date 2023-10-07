@@ -1,7 +1,5 @@
 import "../styles/components/Header.css";
 import logo from '../logo.svg';
-import home from '../home.svg';
-import cart from '../cart.svg';
 import { Link } from 'react-router-dom';
 
 function Header() {

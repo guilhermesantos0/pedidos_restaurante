@@ -13,7 +13,6 @@ const useFetch = (url, options) => {
 
         fetch(url, options)
         .then(res => {
-            console.log(res)
             if(!res.ok){
                 throw Error('Ouve um erro ao pegar as informações.')
             }
@@ -25,9 +24,6 @@ const useFetch = (url, options) => {
             setError(null)
         })
         .catch(err => {
-
-            console.log(err.name)
-
             if(err.name === "AbortError"){
                 console.log("Fetch aborted")
             }else{

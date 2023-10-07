@@ -5,7 +5,7 @@ import addToCard from '../helpers/addToCart';
 function Product(props) {
 
     const handleAddProduct = () => {
-        addToCard(props.id)
+        addToCard(props.productid)
     }
 
     return(

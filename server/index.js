@@ -27,7 +27,6 @@ app.post("/add", (req, res) => {
     
     res.status(200)
 
-    console.log(cart)
     logRequest(req, res)
 })
 
@@ -37,10 +36,17 @@ app.get("/getCart", (req, res) => {
 })
 
 app.get("/getProduct", (req, res) => {
+    const productId = req.headers.productid
 
-    const productId = res.query.productId
+    for(let[k,v] of Object.entries(menu.items)){
+        v.items.forEach(i => {
+            if(i.id == productId) {
+                res.json(i)
+            } 
+        })
+    }
 
-    menu.find(i => i.id == productId)
+    logRequest(req, res)
 
 })
 

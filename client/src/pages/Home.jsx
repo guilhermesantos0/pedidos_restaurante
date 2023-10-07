@@ -8,11 +8,6 @@ function Home() {
 
     const {data: products, isPending, error} = useFetch("/items", { headers: { accept: 'application/json' } })
 
-    if(products){
-        Object.keys(products).forEach(a => {
-            console.log(a)
-        })
-    }
     return (
         <div className="Home">
             <Header></Header>

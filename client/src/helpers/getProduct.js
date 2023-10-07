@@ -1,5 +1,13 @@
-function getProduct (productId) {
-    const product = fetch(`/getProduct?productId=${productId}`, { headers: { accept: 'application/json' }})
+async function getProduct (productId) {
+    let a;
+    fetch(`/getProduct`, { headers: { accept: 'application/json', productid: productId }}).then(product => {
+        product.json().then(i => {
+            a = i ? i : { name: 'Undefined', price: 0 }
+            console.log(a)
+        })
+    })
 
-    return product ? product : { name: 'Undefined', price: 0 }
+    return a
 }
+
+export default getProduct

@@ -16,18 +16,15 @@ function _Category() {
     const {data: _products, isPending, error } = useFetch("/items", { headers: { accept: 'application/json' } })
     useEffect(() => {
         if (_products){
-            // console.log(_products[category])
             setProducts(_products[category])   
         }
     })
-
-    console.log(products?.items)
 
     return (
         <div className="_Category">
             <Header></Header>
             <div className="products_area">
-                {products?.items && products?.items.map(i => <Product id={i.id} name={i.name} price={i.price}/>)}
+                {products?.items && products?.items.map(i => <Product productid={i.id} name={i.name} price={i.price}/>)}
             </div>
         </div>
     )
