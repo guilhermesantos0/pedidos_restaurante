@@ -27,8 +27,47 @@
     gap: 5rem;
 }
 
+.bottom_buttons{
+    width: 50vw;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.bottom_buttons button{
+    width: 20vw;
+    height: 8vh;
+
+    border: 0;
+    background: transparent;
+
+    color: aliceblue;
+
+    border-radius: 5px;
+}
+
+button#confirm{
+    background: rgb(1, 155, 1);
+    border: 2px solid rgb(8, 238, 8);
+}
+
+button#cancel{
+    background: rgb(235, 11, 11);
+    border: 2px solid rgb(167, 6, 6);
+}
+
 @media screen and (max-width: 767px) {
     .cart_container{
         gap: 3rem
+    }
+
+    .bottom_buttons{
+        width: 90vw;
+    }
+
+    .bottom_buttons button{
+        width: 40vw;
     }
 }

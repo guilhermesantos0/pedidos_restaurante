@@ -4,7 +4,7 @@ const menu = require("./db.json")
 
 const app = express()
 
-const cart = {}
+const cart = []
 
 const logRequest = (req, res) => {
     const date = new Date()
@@ -19,12 +19,38 @@ app.get("/items", (req, res) => {
 
 app.post("/add", (req, res) => {
     
-    if(cart[req.headers.product]){
-        cart[req.headers.product] = cart[req.headers.product] + 1
-    }else{
-        cart[req.headers.product] = 1
+    const productId = req.headers.product
+
+    for(let[k,v] of Object.entries(menu.items)){
+        v.items.forEach(i => {
+            if(i.id == productId) {
+                
+                let productInCart = cart.find(j => j.id == productId)
+                if(productInCart){
+                    productInCart.amount += 1
+                }else{
+                    cart.push({
+                        ...i,
+                        amount: 1
+                    })
+                }
+
+                console.log(cart)
+                
+                res.status(200)
+            
+                logRequest(req, res)
+            } 
+        })
     }
-    
+
+})
+
+app.post("/remove", (req, res) => {
+    if(cart[req.headers.product]){
+        const { removedProduct, ...cart } = cart
+    }
+
     res.status(200)
 
     logRequest(req, res)
